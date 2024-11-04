@@ -1,4 +1,5 @@
 using FastEndpoints;
+using FastEndpoints.Swagger;
 
 namespace ATech.DDD.Template.Api;
 
@@ -9,7 +10,16 @@ public static class DependencyInjection
         services
             .AddAuthorization()
             .AddFastEndpoints()
-            ;
+            .SwaggerDocument(opt =>
+            {
+                opt.DocumentSettings = s =>
+                {
+                    s.Title = "ATech.DDD.Template Api";
+                    s.Version = "v1";
+                };
+
+                opt.AutoTagPathSegmentIndex = 0;
+            });
 
         return services;
     }

@@ -1,8 +1,12 @@
 using System.Globalization;
+
 using ATech.DDD.Template.Api;
 using ATech.DDD.Template.Application;
 using ATech.DDD.Template.Infrastructure;
+
 using FastEndpoints;
+using FastEndpoints.Swagger;
+
 using Serilog;
 
 CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
@@ -42,8 +46,7 @@ var app = builder.Build();
 {
     app
         .UseFastEndpoints()
-        // .UseSwaggerGen()
-        ;
+        .UseSwaggerGen();
 }
 
 app.UseHttpsRedirection();

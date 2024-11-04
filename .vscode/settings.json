@@ -4,7 +4,7 @@
             "baseUrl": "http://localhost:5018/api"
         },
         "dev-container": {
-            "baseUrl": "http://127.0.0.1:5224/api"
+            "baseUrl": "http://localhost:5018/api"
         }
     }
 }
