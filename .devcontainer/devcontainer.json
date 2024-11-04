@@ -1,0 +1,49 @@
+{
+	"name": "C# (.NET 8 LTS)",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "."
+	},
+	"remoteUser": "vscode",
+	"mounts": [
+		"source=${localEnv:HOME}/.microsoft/usersecrets/movies-0f5ad21e-c898-4289-b0cf-c0b36048a644,target=/home/vscode/.microsoft/usersecrets/movies-0f5ad21e-c898-4289-b0cf-c0b36048a644,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+	],
+	"forwardPorts": [22],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.csdevkit",
+				"mhutchie.git-graph",
+				"humao.rest-client",
+				"TabNine.tabnine-vscode",
+				"equinusocio.vsc-material-theme-icons",
+				"ms-dotnettools.csharp"
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"path": "bash",
+						"icon": "terminal-bash"
+					},
+					"zsh": {
+						"path": "zsh"
+					},
+					"fish": {
+						"path": "fish"
+					},
+					"tmux": {
+						"path": "tmux",
+						"icon": "terminal-tmux"
+					},
+					"pwsh": {
+						"path": "pwsh",
+						"icon": "terminal-powershell"
+					}
+				}
+			}
+		}
+	},
+	"postCreateCommand": "dotnet tool restore"
+}
